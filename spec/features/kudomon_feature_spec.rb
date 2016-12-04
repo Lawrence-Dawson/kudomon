@@ -18,7 +18,7 @@ feature 'kudomon' do
 
   context 'Kudomon have been added' do
   before do
-    Kudomon.create(name: 'Sourbulb')
+    Kudomon.create(species: 'Sourbulb')
   end
     scenario 'display kudomon' do
       visit '/kudomon'

@@ -1,3 +1,11 @@
 Welcome to Kudomon!
 
-No Kudomon in environment
+<% if @kudomon.any? %>
+<ul> All Kudomon
+  <% @kudomon.each do |kudomon| %>
+    <li> <%= kudomon.species %> </li>
+  <% end %>
+</ul>
+<% else %>
+  No Kudomon in environment
+<% end %>
