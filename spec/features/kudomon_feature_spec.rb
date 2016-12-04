@@ -26,13 +26,19 @@ feature 'kudomon' do
     end
   end
 
-  context 'Kudomon environment should be pre seeded' do
+
+  context 'Kudomon environment' do
     before(:each) do
       load "#{Rails.root}/db/seeds.rb"
     end
-    scenario 'all pokemon should be listed' do
+    scenario 'the environment should pre seed with Kudomon' do
       visit '/kudomon'
       expect(page).to have_content 'Sourbulb Mancharred Chikapu Whirtle Stoner Twomew'
+    end
+
+    scenario 'Only Kudomon nearby a Trainer can be caught' do
+      visit '/kudomon'
+      expect(page).not_to have_content 'Mancharred Chikapu Whirtle Stoner Twomew'
     end
   end
 
