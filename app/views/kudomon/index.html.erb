@@ -1,12 +1,11 @@
 <% if trainer_signed_in? && @kudomon.any? %>
 <h1>Welcome Trainer!</h1>
 <h3>Please select the location you wish to travel to</h3>
-  <p>All local Kudomon are listed below!</p>
-<ul>
-  <% @kudomon.each do |kudomon| %>
-    <li> <%= kudomon.species %> </li>
-  <% end %>
-</ul>
+<%= form_tag 'kudomon/location' do %>
+  <%= label_tag :location %>
+  <%= select_tag :location, options_for_select(1..6) %>
+  <%= submit_tag 'Go to location!' %>
+<% end %>
 <% else %>
   <h1>Welcome to Kudomon Go!</h1>
   <h2>You must sign in to begin catching Kudomon</h2>

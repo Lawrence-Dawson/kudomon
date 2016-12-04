@@ -1,0 +1,15 @@
+<p>All local Kudomon are listed below!</p>
+<ul>
+<p> You are at location: <%= @trainer_location %></p>
+
+<% @local_kudomon = @kudomon.select { |kudomon| kudomon.location == @trainer_location.to_i } %>
+<% if @local_kudomon.count > 0 %>
+<% @local_kudomon.each do |kudomon| %>
+      Species: <%= kudomon.species %><br>
+      Type: <%= kudomon.of_type %><br>
+      Location: <%= kudomon.location %><br>
+      <br>
+  <% end %>
+  <% else %>
+  <p>Bad times... there are no Kudomon at this location</p>
+<% end %>

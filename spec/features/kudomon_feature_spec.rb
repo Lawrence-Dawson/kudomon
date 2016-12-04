@@ -16,6 +16,8 @@ feature 'kudomon' do
     end
     scenario 'display kudomon' do
       sign_up
+      select '1', from: 'location'
+      click_button 'Go to location!'
       expect(page).to have_content 'Sourbulb'
     end
   end
@@ -26,13 +28,18 @@ feature 'kudomon' do
       load "#{Rails.root}/db/seeds.rb"
     end
     scenario 'the environment should pre seed with Kudomon' do
+      visit '/kudomon'
       sign_up
-      expect(page).to have_content 'Sourbulb Mancharred Chikapu Whirtle Stoner Twomew'
+      select '4', from: 'location'
+      click_button 'Go to location!'
+      expect(page).to have_content 'Whirtle'
     end
 
     scenario 'Only Kudomon nearby a Trainer can be caught' do
-      sign_up
       visit '/kudomon'
+      sign_up
+      select '1', from: 'location'
+      click_button 'Go to location!'
       expect(page).not_to have_content 'Mancharred Chikapu Whirtle Stoner Twomew'
     end
   end
