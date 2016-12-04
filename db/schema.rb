@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204155132) do
+ActiveRecord::Schema.define(version: 20161204162021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "kudomons", force: :cascade do |t|
     t.string   "species"
-    t.string   "type"
+    t.string   "of_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
