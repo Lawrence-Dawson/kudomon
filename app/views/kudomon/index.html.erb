@@ -1,11 +1,13 @@
-Welcome to Kudomon!
-
-<% if @kudomon.any? %>
-<ul> All Kudomon
+<% if trainer_signed_in? && @kudomon.any? %>
+<h1>Welcome Trainer!</h1>
+<h3>Please select the location you wish to travel to</h3>
+  <p>All local Kudomon are listed below!</p>
+<ul>
   <% @kudomon.each do |kudomon| %>
     <li> <%= kudomon.species %> </li>
   <% end %>
 </ul>
 <% else %>
-  No Kudomon in environment
+  <h1>Welcome to Kudomon Go!</h1>
+  <h2>You must sign in to begin catching Kudomon</h2>
 <% end %>

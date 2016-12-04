@@ -1,18 +1,12 @@
 require 'rails_helper'
+require 'web_helpers'
 
 feature 'kudomon' do
 
   context 'Welcome' do
     scenario 'should display welcome message' do
       visit '/kudomon'
-      expect(page).to have_content 'Welcome to Kudomon!'
-    end
-  end
-
-  context 'kudomon environment' do
-    scenario 'should display no kudomon' do
-      visit '/kudomon'
-      expect(page).to have_content 'No Kudomon in environment'
+      expect(page).to have_content 'Welcome to Kudomon Go!'
     end
   end
 
@@ -21,8 +15,8 @@ feature 'kudomon' do
       Kudomon.create(species: 'Sourbulb', of_type: 'Grass')
     end
     scenario 'display kudomon' do
-      visit '/kudomon'
-      expect(page).to have_content 'All Kudomon Sourbulb'
+      sign_up
+      expect(page).to have_content 'Sourbulb'
     end
   end
 
@@ -32,11 +26,12 @@ feature 'kudomon' do
       load "#{Rails.root}/db/seeds.rb"
     end
     scenario 'the environment should pre seed with Kudomon' do
-      visit '/kudomon'
+      sign_up
       expect(page).to have_content 'Sourbulb Mancharred Chikapu Whirtle Stoner Twomew'
     end
 
     scenario 'Only Kudomon nearby a Trainer can be caught' do
+      sign_up
       visit '/kudomon'
       expect(page).not_to have_content 'Mancharred Chikapu Whirtle Stoner Twomew'
     end
