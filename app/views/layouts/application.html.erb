@@ -3,7 +3,12 @@
   <head>
     <title>KudomonGo</title>
     <%= csrf_meta_tags %>
-
+    <% if trainer_signed_in? %>
+        <%= link_to "Sign out", destroy_trainer_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign in", new_trainer_session_path %>
+        <%= link_to "Sign up", new_trainer_registration_path %>
+    <% end %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
