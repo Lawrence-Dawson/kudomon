@@ -10,5 +10,9 @@ class KudomonController < ApplicationController
     @trainer_location = params[:location]
   end
 
+  def capture
+  
+  end
+
 
 end
