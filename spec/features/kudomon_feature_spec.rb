@@ -12,7 +12,7 @@ feature 'kudomon' do
 
   context 'Kudomon have been added' do
     before do
-      Kudomon.create(species: 'Sourbulb', of_type: 'Grass')
+      Kudomon.create(species: 'Sourbulb', of_type: 'Grass', location: 1)
     end
     scenario 'display kudomon' do
       sign_up
