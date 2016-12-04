@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'kudomon' => 'kudomon#index'
+  devise_for :trainers
+  root "kudomon#index"
   resources :kudomon
 end
