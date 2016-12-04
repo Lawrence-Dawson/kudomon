@@ -1,62 +1,67 @@
-# Section 1: Installation & Orientation
+# Kudomon GO!
+Credit Kudos' Technical Challenge.
 
-#### Installing Rails
+## What is this challenge for?
+We want to understand the way you think about problems, and how you write code to tackle them. We’re not looking for the most efficient algorithmics, we’re looking for the simplest solution. We’re not going to give much in the way of guidance as to the specifics of implementation - if you think a model needs an attribute or a method, you go ahead and do it. You’re in charge.
 
-`$ gem install rails` will install the Rails gem. Expect it to take a while. `rails --help` gives a nice help menu.
+## How should solutions be presented?
+Ideally, solutions will be Ruby code with tests. Rails is optional.
+Fork this repo, and raise a pull-request containing your answer.
 
-Right. All installed? Then let's begin.
+## So, what’s the challenge?
+Imagine that all around us, in a virtual world, are virtual creatures (Kudomon) that you can catch and collect.
 
+A Trainer (like you) can log onto their computer and be unaware that these Kudomon are all around them in geo-virtual space. Your task is to design and build an application through which one can interact with these Kudomon.
 
-### Making a new Rails app:
+### Part 1
+#### Define classes to model this application.
+There are many different species of Kudomon, each having a type. Examples:
 
-##### The basic way:
+- species: Sourbulb, type: grass
+- species: Mancharred, type: fire
+- species: Chikapu, type: electric
 
-`$ rails new yelp_clone`
+Other types include water, rock and psychic. Feel free to invent your own species using these six types!
 
-##### The 'we want RSpec and PostgreSQL way':
+Both Trainers and Kudomon need to have a Position, so we can know which Kudomon are nearby.
 
-`$ rails new yelp_clone -d postgresql -T`
+### Part 2
+#### Gotta catch ‘em all!
+In this part we’ll implement the means for a Trainer to catch a Kudomon and add it to their collection.
 
+First, we need to know which Kudomon are nearby to a Trainer. Write code to calculate this. How you define “nearby” is completely up to you.
 
-#### Anatomy of the `new` generator:
+A Trainer can catch nearby Kudomon and add them to his/her collection. Write code to allow this.
 
-* `yelp_clone` is the name of your app – Rails will create this in a new directory.
-* By default, Rails uses `Test::Unit` for testing. The `-T` switch turns off the built-in Rails test suite, because we're going to use RSpec for this project.
-* `-d` preconfigures your app for a particular type of database. By default, this is SQLite – which is a useful toy database, but can't be used on Heroku. In this case, we're overriding the default to use PostgreSQL.
+### Part 3
+#### Multi-player
+Now we’re going to introduce the idea that multiple people can try and catch Kudomon at the same time.
 
+Scenario:
+I’m sat at my computer and I see a Kudomon I want to catch. I try to catch it.
+At the exact same time, my neighbour Freddy sees the same Kudomon and also tries to catch it.
+Freddy succeeds and adds the Kudomon to his collection before I’ve finished catching it.
+I now feel sad.
 
-#### Where'd all those files come from???
+How can we avoid this situation?
 
-True to its 'opinionated' name, Rails is full of files and folders right from the start. This is an example of Rails touting a certain kind of configuration, which is a strong recommendation for how to organise the files in your project. Here's what some of them do:
+Now imagine instead of just two people, it’s now 1000 people cramming into Central Park to catch the same Kudomon - would the same solution work then?
 
-* `app` – **where your code goes**. Contains models, views and controllers; as well as also JavaScript & CSS assets
-* `bin` – contains specific versions of executables such as rails and rake for doing low level tasks
-* `config` – configuration information, including `database.yml` which includes database configuration details and a routes file
-* `db` - all our database related code for migrating and seeding the database
-* `lib` - place to put non-rails ruby code
-* `lib/tasks` - the home for your custom rake tasks ([Rake Tasks Pill](https://github.com/makersacademy/course/blob/master/pills/rake_tasks_for_database_management.md))
-* `log` – keeps server logs and terminal output
-* `public` – public resources. These will remain available even if the server goes down. Includes all your error pages by default (Note: in Sinatra you would expect to see your css & javascript directories in here, but with Rails, we put these in `app/assets` instead.)
-* `tmp` - temporary stuff gets stored here
-* `vendors` – a place for resources that you didn't write but are needed for the project, like jQuery; also called 3rd party assets
+If applicable, amend your code to allow for these situations.
 
+### Part 4
+#### Be the very best!
+For some reason, Kudomon allow their Trainers to make them battle each other until one of them is knocked out. Add the concept of a Battle between two Kudomon to your code. Amend your code to take into account that Kudomon have health points and combat points.
 
-#### Start the server
+Write code for a fight with the following mechanics:
 
-`$ bin/rails server` or `$ bin/rails s` will get you started. (Rails has lots of these little command-line shortcuts.) Now visit http://localhost:3000.
+1. A randomly chosen Kudomon goes first.
+2. Until one of the Kudomon is knocked out (i.e. when health points <= 0), both battling Kudomon take it in turns to inflict damage on the other. The amount of damage is equivalent to their combat points.
+3. The battle should return the winner.
 
-> You've just typed in `bin/rails server` - but what would happen if you just typed `rails server`? What is the difference between these commands, and why do you think we insist on `bin/rails` instead of `rails`?
+To make it more interesting, certain types Kudomon fight far more effectively against other types. For example, a fire Kudomon will trounce a grass type, but a water type will extinguish a fire type.
 
-If you see an error, you'll likely need to run a `rake` task to get your database built:
+Water > Fire > Grass > Rock > Electric > Water
+(Psychic is good against everything except other psychics.)
 
-`$ bin/rake db:create`
-
-**PRO-TIP:** Sometimes there can be a bit of a frustrating problem at this stage, where depending on your system configuration, the above might work, then again it might be necessary to run the following as well:
-
-`$ bin/rake db:create RAILS_ENV=test`
-
-This is a frustrating and intermittent problem. The most frustrating part of it, is that `rake db:` things are magic, and the very best advice you can heed as a Junior is this: **ACCEPT THE MAGIC.** You may be filled with a burning desire to understand every little part of how Rails works, but at this stage it is unnecessary.
-
-The ideal level of knowledge at this point, is that you need to run a `rake` task to build your database before you can get anywhere with your app - and sometimes you need to run a slightly different version of that `rake` task if the first doesn't work.
-
-### [Next Section - Setting Up Tests](2_setting_up_tests.md)
+Amend your code to take this dynamic into account.
