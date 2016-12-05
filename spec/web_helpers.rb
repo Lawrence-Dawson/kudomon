@@ -14,3 +14,17 @@ def sign_in
   fill_in 'Password', with: 'password'
   click_button 'Log in'
 end
+
+def capture_sourbulb
+  visit '/kudomon'
+  select '1', from: 'location'
+  click_button 'Go to location!'
+  click_link 'Capture Sourbulb!'
+end
+
+def capture_mancharred
+  visit '/kudomon'
+  select '2', from: 'location'
+  click_button 'Go to location!'
+  click_link 'Capture Mancharred!'
+end

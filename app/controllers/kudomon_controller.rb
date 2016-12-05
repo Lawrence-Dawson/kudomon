@@ -26,6 +26,23 @@ class KudomonController < ApplicationController
     @captured_kudomon = session[:captured_kudomon]
   end
 
+  def kudogym
+    @trainers_kudomon = []
+    relations = current_trainer.captureds
+    relations.each do |relation|
+    @trainers_kudomon << relation.kudomon
+    @trainers_kudomon
+    end
+  end
+
+
+    # puts @kudomon = Kudomon.includes(:trainers).where(trainers: { trainer_id: (current_trainer.id) }).all
+
+    #  puts current_trainer.captureds.first.kudomons
+
+    #  p Trainer.find(current_trainer.id).captureds
+
+
   private
 
   def kudomon_params

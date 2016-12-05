@@ -23,7 +23,7 @@ feature 'kudomon' do
   end
 
 
-  context 'Kudomon environment' do
+  context 'Kudomon capture' do
     before(:each) do
       load "#{Rails.root}/db/seeds.rb"
     end
@@ -51,6 +51,16 @@ feature 'kudomon' do
       click_link 'Capture Sourbulb!'
       expect(page).to have_content 'You captured Sourbulb!'
     end
-  end
 
+
+    scenario 'You can view all captured Kudomon' do
+      visit '/kudomon'
+      sign_up
+      capture_sourbulb
+      click_link 'Move to a new location'
+      capture_mancharred
+      click_link 'View captured Kudomon'
+      expect(page).to have_content 'Sourbulb' && 'Mancharred'
+    end
+  end
 end
