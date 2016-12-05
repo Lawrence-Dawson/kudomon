@@ -8,7 +8,7 @@
       Species: <%= kudomon.species %><br>
       Type: <%= kudomon.of_type %><br>
       Location: <%= kudomon.location %><br>
-      <%= link_to "Capture #{kudomon.species}!", kudomon_capture_path(kudomon)%>
+      <%= link_to "Capture #{kudomon.species}!", kudomon_capture_path(kudomon.id)%>
       <br>
   <% end %>
   <% else %>

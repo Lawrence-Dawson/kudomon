@@ -1,4 +1,4 @@
 class Captured < ApplicationRecord
-  belongs_to :kudomons
-  belongs_to :trainers
+  belongs_to :kudomon
+  belongs_to :trainer
 end
