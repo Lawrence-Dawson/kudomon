@@ -2,22 +2,23 @@
 
 Sadly I was only able to begin this Tech Test on Sunday afternoon, therefore it is **unfinished**.
 
-The **first three** challenges are **complete**:
+The **first three** challenges are **complete** Stage four is started but unfinished:
 
 - Build a Kudomon class with species, and type - complete
 - A trainer can select a location and see other kudomon that are in that location.
 - A trainer can capture Kudomon that are in their location.
 - Kudomon and Trainers have a many to many relationship, therefore an infinate amount of trainers can catch the same Kudomon
 
-Stage four is not yet attempted
+Stage four:
+- Trainers can view their Kudomon in their 'Kudomon Gym'
+- Trainers can select their Kudomon for battle/training
 
 To complete stage four I intended to do the following:
 
-- Enable the trainer to view captured Kudomon in a new 'captured' view
 - Add HP and CP columns to the Kudomon, also update seeded Kudomon with HP/CP levels
-- Within the 'captured' view the trainer would be able to select two Kudomon for battle
-- Clicking a 'Battle Now' button would redirect to a new 'battle' with a single 'Attack' button
-- Clicking the 'Attack' button would use AJAX to lower the HP on each respective Kudomon, taking into account new logic for Kudomon types and their effectiveness, until one was defeated
+- Add and fully test game logic for battle
+- Add a button to the battle view to begin the battle
+- Add AJAX to keep the trainer in the same battle view and lower the HP for each respective Kudomon, taking into account new logic for Kudomon types and their effectiveness, until one was defeated
 
 Install and Run Instructions
 ---------------------------
