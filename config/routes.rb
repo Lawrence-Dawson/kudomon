@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'kudomon/location'
   get 'kudomon/location'
   get 'kudomon/capture'
+  get 'kudomon/captured'
   post 'kudomon/capture'
   resources :kudomon
 end

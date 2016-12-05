@@ -43,13 +43,13 @@ feature 'kudomon' do
       expect(page).not_to have_content 'Mancharred Chikapu Whirtle Stoner Twomew'
     end
 
-    scenario 'Only Kudomon nearby a Trainer appear' do
+    scenario 'Only Kudomon nearby a Trainer can be caught' do
       visit '/kudomon'
       sign_up
       select '1', from: 'location'
       click_button 'Go to location!'
       click_link 'Capture Sourbulb!'
-      expect(page).not_to have_content 'Mancharred Chikapu Whirtle Stoner Twomew'
+      expect(page).to have_content 'You captured Sourbulb!'
     end
   end
 

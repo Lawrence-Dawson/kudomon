@@ -15,10 +15,15 @@ class KudomonController < ApplicationController
     captured.kudomon = Kudomon.find_by_id(params[:format])
     captured.trainer = Trainer.find_by_id(current_trainer.id)
     if captured.save!
-      redirect_to '/kudomon'
+      session[:captured_kudomon] = Kudomon.find_by_id(params[:format]).species
+      redirect_to '/kudomon/captured'
     else
       puts 'didn/t save'
     end
+  end
+
+  def captured
+    @captured_kudomon = session[:captured_kudomon]
   end
 
   private
