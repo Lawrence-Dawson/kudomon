@@ -1,4 +1,39 @@
-# Kudomon GO!
+# Credit Kudos Tech Test
+
+Sadly I was only able to begin this Tech Test on Sunday afternoon, therefore it is **unfinished**.
+
+The **first three** challenges are **complete**:
+
+- Build a Kudomon class with species, and type - complete
+- A trainer can select a location and see other kudomon that are in that location.
+- A trainer can capture Kudomon that are in their location.
+- Kudomon and Trainers have a many to many relationship, therefore an infinate amount of trainers can catch the same Kudomon
+
+Stage four is not yet attempted
+
+To complete stage four I intended to do the following:
+
+- Enable the trainer to view captured Kudomon in a new 'captured' view
+- Add HP and CP columns to the Kudomon, also update seeded Kudomon with HP/CP levels
+- Within 'captured' view the trainer would be able to select two Kudomon for battle
+- Clicking a 'Battle Now' button would redirect to a new 'battle' with a single 'Attack' button
+- Clicking the 'Attack' button would use AJAX to lower the HP on each respective Kudomon, taking into account new logic for Kudomon types and there effectiveness, until one was defeated
+
+Install and Run Instructions
+---------------------------
+
+1. Clone this repository locally
+2. From the command line navigate within the cloned repository
+3. Enter the command - 'bundle install'
+4. Enter the command - 'rake db:migrate'
+5. Enter the command - 'rake db:seed'
+6. Enter the command - 'bin/rails s'
+7. Open a browser and navigate to'http://localhost:3000/kudomon'
+
+For the original challenge Readme see below
+-------------------------------------------
+
+Kudomon GO!
 Credit Kudos' Technical Challenge.
 
 ## What is this challenge for?
