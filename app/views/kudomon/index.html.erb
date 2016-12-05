@@ -4,9 +4,9 @@
 <%= form_tag 'kudomon/location' do %>
   <%= label_tag :location %>
   <%= select_tag :location, options_for_select(1..6) %>
-  <%= submit_tag 'Go to location!' %>
-  <p>Or view your captured Kudomon below</p>
-  
+  <%= submit_tag 'Go to location!' %><br>
+  <h3><%= link_to "View captured Kudomon", kudomon_kudogym_path %></h3>
+
 <% end %>
 <% else %>
   <h1>Welcome to Kudomon Go!</h1>

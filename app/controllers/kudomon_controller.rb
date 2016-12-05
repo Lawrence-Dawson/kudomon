@@ -18,7 +18,8 @@ class KudomonController < ApplicationController
       session[:captured_kudomon] = Kudomon.find_by_id(params[:format]).species
       redirect_to '/kudomon/captured'
     else
-      puts 'didn/t save'
+      redirect_to '/kudomon'
+      flash[:alert] = 'Unable to capture Kudomon'
     end
   end
 
@@ -28,20 +29,12 @@ class KudomonController < ApplicationController
 
   def kudogym
     @trainers_kudomon = []
-    relations = current_trainer.captureds
+    relations = Trainer.find(current_trainer.id).captureds
     relations.each do |relation|
     @trainers_kudomon << relation.kudomon
-    @trainers_kudomon
     end
+    @trainers_kudomon.count
   end
-
-
-    # puts @kudomon = Kudomon.includes(:trainers).where(trainers: { trainer_id: (current_trainer.id) }).all
-
-    #  puts current_trainer.captureds.first.kudomons
-
-    #  p Trainer.find(current_trainer.id).captureds
-
 
   private
 
