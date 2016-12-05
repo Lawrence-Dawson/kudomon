@@ -17,8 +17,8 @@ mancharred.of_type = 'Fire'
 mancharred.location = 2
 mancharred.save
 
-chikapu = Kudomon.find_or_initialize_by(species: 'Chickapu')
-chikapu.species = 'Chickapu'
+chikapu = Kudomon.find_or_initialize_by(species: 'Chikapu')
+chikapu.species = 'Chikapu'
 chikapu.of_type = 'Electric'
 chikapu.location = 3
 chikapu.save
