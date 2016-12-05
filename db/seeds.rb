@@ -5,9 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Kudomon.create(species: 'Sourbulb', of_type: 'Grass', location: 1)
-Kudomon.create(species: 'Mancharred', of_type: 'Fire', location: 2)
-Kudomon.create(species: 'Chikapu', of_type: 'Electric', location: 3)
-Kudomon.create(species: 'Whirtle', of_type: 'Water', location: 4)
-Kudomon.create(species: 'Stoner', of_type: 'Rock', location: 5)
-Kudomon.create(species: 'Twomew', of_type: 'Psychic', location: 6)
+sourbulb = Kudomon.find_or_initialize_by(species: 'Sourbulb')
+sourbulb.species = 'Sourbulb'
+sourbulb.of_type = 'Grass'
+sourbulb.location = 1
+sourbulb.save
+
+mancharred = Kudomon.find_or_initialize_by(species: 'Mancharred')
+mancharred.species = 'Mancharred'
+mancharred.of_type = 'Fire'
+mancharred.location = 2
+mancharred.save
+
+chikapu = Kudomon.find_or_initialize_by(species: 'Chickapu')
+chikapu.species = 'Chickapu'
+chikapu.of_type = 'Electric'
+chikapu.location = 3
+chikapu.save
+
+whirtle = Kudomon.find_or_initialize_by(species: 'Whirtle')
+whirtle.species = 'Whirtle'
+whirtle.of_type = 'Water'
+whirtle.location = 4
+whirtle.save
+
+stoner = Kudomon.find_or_initialize_by(species: 'Stoner')
+stoner.species = 'Stoner'
+stoner.of_type = 'Rock'
+stoner.location = 5
+stoner.save
+
+twomew = Kudomon.find_or_initialize_by(species: 'Twomew')
+twomew.species = 'Twomew'
+twomew.of_type = 'Psychic'
+twomew.location = 6
+twomew.save
