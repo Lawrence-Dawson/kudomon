@@ -1,8 +1,10 @@
 <h1>Kudogym</h1>
 <h3>To train your Kudomon select two and make them battle!</h3>
+<%= form_tag '/kudomon/battle' do |form| %>
 <% @trainers_kudomon.each do |kudomon| %>
-<%= check_box_tag "kudomon[kudomon_ids][]", kudomon.id %>
+<%= check_box_tag "kudomon_ids[]", kudomon.id %>
 <%= "Species: #{kudomon.species} Type: #{kudomon.of_type}" %><br>
-
 <% end %><br>
-<%= link_to "Home", root_path %>
+<%= submit_tag 'Battle!' %><br>
+<% end %><br>
+<%= link_to "Home", root_path, class: 'button' %>

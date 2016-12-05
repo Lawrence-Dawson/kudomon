@@ -30,10 +30,17 @@ class KudomonController < ApplicationController
   def kudogym
     @trainers_kudomon = []
     relations = Trainer.find(current_trainer.id).captureds
-    relations.each do |relation|
-    @trainers_kudomon << relation.kudomon
-    end
+    relations.each { |relation| @trainers_kudomon << relation.kudomon }
     @trainers_kudomon.count
+  end
+
+  def battle
+    @the_chosen = []
+    params[:kudomon_ids].each do |kudomon|
+      k = Kudomon.find_by_id(kudomon)
+      @the_chosen << k
+    end
+    @the_chosen
   end
 
   private

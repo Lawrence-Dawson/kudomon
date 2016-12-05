@@ -57,10 +57,26 @@ feature 'kudomon' do
       visit '/kudomon'
       sign_up
       capture_sourbulb
-      click_link 'Move to a new location'
+      click_link 'Home'
       capture_mancharred
       click_link 'View captured Kudomon'
       expect(page).to have_content 'Sourbulb' && 'Mancharred'
     end
   end
+
+  # context 'Kudomon Battle' do
+  #   before(:each) do
+  #     load "#{Rails.root}/db/seeds.rb"
+  #   end
+#     scenario 'selecting a Kudomon chooses them for battle' do
+#       visit '/kudomon'
+#       sign_up
+#       capture_sourbulb
+#       click_link 'Home'
+#       capture_mancharred
+#       find("input[type='checkbox'][value='1']").set(true)
+#       click_button 'Battle!'
+#   end
+# end
+
 end

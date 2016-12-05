@@ -5,7 +5,7 @@
   <%= label_tag :location %>
   <%= select_tag :location, options_for_select(1..6) %>
   <%= submit_tag 'Go to location!' %><br>
-  <h3><%= link_to "View captured Kudomon", kudomon_kudogym_path %></h3>
+<h3><%= link_to "View captured Kudomon", kudomon_kudogym_path, class: 'button' %></h3>
 
 <% end %>
 <% else %>

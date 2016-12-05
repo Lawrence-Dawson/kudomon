@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get 'kudomon/captured'=> 'kudomon#captured'
 
     get 'kudomon/kudogym' => 'kudomon#kudogym'
-    
+
+    get 'kudomon/battle' => 'kudomon#battle'
+    post 'kudomon/battle' => 'kudomon#battle'
+
+
   resources :kudomon
 end
