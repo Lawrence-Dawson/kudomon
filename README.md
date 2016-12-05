@@ -15,9 +15,9 @@ To complete stage four I intended to do the following:
 
 - Enable the trainer to view captured Kudomon in a new 'captured' view
 - Add HP and CP columns to the Kudomon, also update seeded Kudomon with HP/CP levels
-- Within 'captured' view the trainer would be able to select two Kudomon for battle
+- Within the 'captured' view the trainer would be able to select two Kudomon for battle
 - Clicking a 'Battle Now' button would redirect to a new 'battle' with a single 'Attack' button
-- Clicking the 'Attack' button would use AJAX to lower the HP on each respective Kudomon, taking into account new logic for Kudomon types and there effectiveness, until one was defeated
+- Clicking the 'Attack' button would use AJAX to lower the HP on each respective Kudomon, taking into account new logic for Kudomon types and their effectiveness, until one was defeated
 
 Install and Run Instructions
 ---------------------------
